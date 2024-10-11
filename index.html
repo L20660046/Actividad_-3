@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <style>
+        .error {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <form id="registroForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <span id="nombreError" class="error"></span>
+        <br>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            let nombre = document.getElementById('nombre').value;
+            let nombreError = document.getElementById('nombreError');
+            if (nombre === '') {
+                nombreError.textContent = 'El nombre no puede estar vacío.';
+                event.preventDefault();
+            } else {
+                nombreError.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>
